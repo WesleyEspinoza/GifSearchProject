@@ -1,0 +1,19 @@
+{
+  "name": "gifsearch",
+  "version": "0.0.1",
+  "description": "A web Application that helps you find gifs.",
+  "main": "app.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/WesleyEspinoza/GifSearchProject.git"
+  },
+  "author": "Erick W. Espinoza",
+  "license": "SEE LICENSE IN <LICENSE>",
+  "bugs": {
+    "url": "https://github.com/WesleyEspinoza/GifSearchProject/issues"
+  },
+  "homepage": "https://github.com/WesleyEspinoza/GifSearchProject#readme"
+}
