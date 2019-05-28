@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/WesleyEspinoza/GifSearchProject/issues"
   },
-  "homepage": "https://github.com/WesleyEspinoza/GifSearchProject#readme"
+  "homepage": "https://github.com/WesleyEspinoza/GifSearchProject#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
