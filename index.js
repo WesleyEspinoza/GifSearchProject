@@ -1,5 +1,11 @@
 // reqs
 const express = require('express');
+const https = require('https');
+const Tenor = require("tenorjs").client({
+  "Key": "",
+    "Filter": "high", // "off", "low", "medium", "high", not case sensitive
+    "Locale": "en_US", // Your locale here, case-sensitivity depends on input
+})
 
 // app setup
 const app = express();
@@ -12,8 +18,15 @@ app.set('view engine', 'handlebars');
 
 // routes
 app.get('/', (req, res) => {
-  console.log(req.query)
-  res.render('Home')
+  term = ""
+  if (req.query.term) {
+    term = req.query.term
+  }
+  Tenor.Search.Query(term, 10)
+    .then(response => {
+      const gifs = response;
+      res.render('home', { gifs })
+    }).catch(console.error);
 });
 
 app.get('/greeting/:name', (req, res) => {
@@ -23,6 +36,6 @@ app.get('/greeting/:name', (req, res) => {
 
 //start server
 
-app.listen(5000, () => {
+app.listen(3000, () => {
   console.log('GifSearch is Up and Running');
 });
