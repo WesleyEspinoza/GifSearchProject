@@ -2,10 +2,10 @@
 const express = require('express');
 const https = require('https');
 const Tenor = require("tenorjs").client({
-  "Key": "",
+  "Key": "OBVCYQ3Y499N",
     "Filter": "high", // "off", "low", "medium", "high", not case sensitive
     "Locale": "en_US", // Your locale here, case-sensitivity depends on input
-})
+});
 
 // app setup
 const app = express();
@@ -15,6 +15,7 @@ const exphbs = require('express-handlebars');
 
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
+app.use(express.static('public'));
 
 // routes
 app.get('/', (req, res) => {
@@ -22,8 +23,9 @@ app.get('/', (req, res) => {
   if (req.query.term) {
     term = req.query.term
   }
-  Tenor.Search.Query(term, 10)
+  Tenor.Search.Query(term, 11)
     .then(response => {
+      console.log(response)
       const gifs = response;
       res.render('home', { gifs })
     }).catch(console.error);
